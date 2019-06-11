@@ -29,7 +29,7 @@ endif
 
 "VIM PLUGINS
 
-Plugin 'itchyny/lightline.vim'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 set laststatus=2
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
@@ -38,6 +38,13 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'vim-syntastic/syntastic'
+Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Bundle 'YouCompleteMe'
 
 colorscheme wombat
 set hlsearch
@@ -68,3 +75,34 @@ inoremap {<cr> {<cr>}<c-o><s-o>
 set ttimeoutlen=50
 set showcmd
 
+" Python highlighting
+syntax on
+filetype indent plugin on
+
+" split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with spacebar
+nnoremap <space> za
+
+au BufNewFile,BufRead *.py
+  \ set tabstop=4
+  \ set softtabstop=4
+  \ set shiftwidth=4
+  \ set expandtab
+  \ set autoindent
+  \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+  \ set tabstop=2
+  \ set softtabstop=2
+  \ set shiftwidth=2
+
+let python_highlight_all=1
